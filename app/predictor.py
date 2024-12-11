@@ -1,7 +1,6 @@
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
-
 # Load model and scaler (ensure this is done only once)
 
 def predict_player(player_name, data, features, best_model, scaler):
@@ -56,13 +55,21 @@ def predict_player(player_name, data, features, best_model, scaler):
         goals_percentage = float(goals_percentage)
     else:
         clean_sheet_percentage = float(clean_sheet_percentage)
+    
+    # Calculate average bonus points
+    avg_bonus_points = player_data["bonusPoints"].mean()
+
+    # Calculate average points per week
+    points_per_week = player_data["totalPoints"].mean()
 
     # Build the result dictionary
     result = {
         "playerName": player_name,
         "predictedPoints": round(predicted_points, 2),
         "percentageChange": f"{round(percentage_change, 2)}%",
-        "trend": trend
+        "trend": trend,
+        "avgBonusPoints": round(avg_bonus_points, 2),
+        "pointsPerWeek": round(points_per_week, 2),
     }
 
     # Add statistics based on whether the player is a goalkeeper or not
