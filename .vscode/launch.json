@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/media/yousef/New Volume/FantasyEdge/AIModel",
-      "program": "/media/yousef/New Volume/FantasyEdge/AIModel/build/Debug/outDebug",
+      "cwd": "/media/yousef/New Volume/FantasyEdge/FantasyPerdiction",
+      "program": "/media/yousef/New Volume/FantasyEdge/FantasyPerdiction/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
