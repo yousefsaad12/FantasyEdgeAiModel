@@ -57,7 +57,7 @@ def predict_player(player_name, data, features, best_model, scaler):
         clean_sheet_percentage = float(clean_sheet_percentage)
     
     # Calculate average bonus points
-    avg_bonus_points = player_data["bonusPoints"].mean()
+    avg_bonus_points = player_data["bonus"].mean()
 
     # Calculate average points per week
     points_per_week = player_data["totalPoints"].mean()

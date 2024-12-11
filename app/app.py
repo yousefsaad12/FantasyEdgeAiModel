@@ -25,7 +25,7 @@ features = [
 class PlayerNameRequest(BaseModel):
     player_name: str
 
-@app.get("/predict/")
+@app.post("/predict/")
 def predict_player_endpoint(request: PlayerNameRequest):
     # Call the `predict_player` function
     result = predict_player(request.player_name, data, features, best_model, scaler)
