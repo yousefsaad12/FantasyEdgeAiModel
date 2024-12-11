@@ -25,7 +25,7 @@ features = [
 class PlayerNameRequest(BaseModel):
     player_name: str
 
-@app.post("/predict/")
+@app.get("/predict/")
 def predict_player_endpoint(request: PlayerNameRequest):
     # Call the `predict_player` function
     result = predict_player(request.player_name, data, features, best_model, scaler)
@@ -35,7 +35,7 @@ def predict_player_endpoint(request: PlayerNameRequest):
     
     return result
 
-@app.post("/retrain/")
+@app.get("/retrain/")
 def retrain_endpoint():
     # Read the API_URL from the environment
     api_url = os.getenv("API_URL")
