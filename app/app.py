@@ -30,10 +30,11 @@ def predict_player_endpoint(request: PlayerNameRequest):
     # Call the `predict_player` function
     result = predict_player(request.player_name, data, features, best_model, scaler)
     
-    if isinstance(result, str):  # If the result is an error message (player not found)
-        raise HTTPException(status_code=404, detail=result)
-    
-    return result
+    # Check if the result is an error message or player is not found
+    if isinstance(result, str):  # Assuming `result` is an error message if the player is not found
+        return None  # FastAPI will serialize this as null in JSON
+
+    return result 
 
 @app.get("/retrain/")
 def retrain_endpoint():

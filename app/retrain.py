@@ -27,11 +27,12 @@ def retrain_model(api_url):
             raise Exception("No data fetched from API.")
 
         # Combine firstName and secondName into a single playerName column
+        
         data["playerName"] = data["firstName"] + " " + data["secondName"]
 
         # Sort data by playerName and gameweek
         data = data.sort_values(by=["playerName", "gameWeek"])
-
+        
         # Create previousPoints and rolling features
         data["previousPoints"] = data.groupby("playerName")["totalPoints"].shift(1)
         data["avgPointsLast3"] = data.groupby("playerName")["totalPoints"].rolling(3).mean().reset_index(0, drop=True)
